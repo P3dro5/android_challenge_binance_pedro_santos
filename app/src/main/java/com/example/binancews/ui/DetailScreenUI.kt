@@ -24,7 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.binancews.viewmodel.CryptoViewModel
+import com.example.binancews.ui.viewmodel.CryptoViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -85,11 +85,11 @@ fun DetailScreenComposeView(
                                 style = MaterialTheme.typography.headlineMedium
                             )
                             Text(
-                                text = "Price: ${selectedTicker.price}",
+                                text = "Price: ${'$'}${selectedTicker.price}",
                                 style = MaterialTheme.typography.titleLarge
                             )
                             Text(
-                                text = "Change: ${selectedTicker.priceChange} (${selectedTicker.priceChange}%)",
+                                text = "Change: ${selectedTicker.priceChange} (${"%.2f".format(selectedTicker.priceChangePercent)}%)",
                                 color = if (selectedTicker.priceChange >= 0)
                                     MaterialTheme.colorScheme.primary
                                 else
@@ -98,6 +98,14 @@ fun DetailScreenComposeView(
                             )
                             Text(
                                 text = "Volume: ${selectedTicker.volume}",
+                                style = MaterialTheme.typography.bodyMedium
+                            )
+                            Text(
+                                text = "High: ${selectedTicker.high}",
+                                style = MaterialTheme.typography.bodyMedium
+                            )
+                            Text(
+                                text = "Low: ${selectedTicker.low}",
                                 style = MaterialTheme.typography.bodyMedium
                             )
                     }

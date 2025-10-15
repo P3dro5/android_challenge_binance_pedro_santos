@@ -1,7 +1,7 @@
 package com.example.binancews.data
 
 import com.example.binancews.domain.BinanceRepository
-import com.example.binancews.model.SymbolInfo
+import com.example.binancews.domain.model.SymbolInfo
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton

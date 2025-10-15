@@ -1,11 +1,11 @@
-package com.example.binancews.viewmodel
+package com.example.binancews.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.binancews.data.WsEvent
 import com.example.binancews.domain.GetSymbolsUseCase
-import com.example.binancews.model.CryptoListingTicker
+import com.example.binancews.domain.model.CryptoListingTicker
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -51,7 +51,11 @@ class CryptoViewModel @Inject constructor(
                 } catch(e: IOException) {
                     _tickerHandler.emit(TickerState.NetworkError)
                 } catch(e: Exception) {
-                    _tickerHandler.emit(TickerState.Failure(message = e.message ?: "Error, please try again later."))
+                    _tickerHandler.emit(
+                        TickerState.Failure(
+                            message = e.message ?: "Error, please try again later."
+                        )
+                    )
                 }
         }
     }
@@ -59,8 +63,8 @@ class CryptoViewModel @Inject constructor(
     private suspend fun parseTicker(jsonText: String) {
         try {
             val json = Json.parseToJsonElement(jsonText).jsonObject
-            val symbol = json["s"]?.jsonPrimitive?.content ?: return
-            val price = json["c"]?.jsonPrimitive?.double ?: return
+            val symbol = json["s"]?.jsonPrimitive?.content ?: throw IllegalArgumentException("Invalid Format.")
+            val price = json["c"]?.jsonPrimitive?.double ?: throw IllegalArgumentException("Invalid Format.")
             val change = json["p"]?.jsonPrimitive?.double ?: 0.0
             val percent = json["P"]?.jsonPrimitive?.double ?: 0.0
             val high = json["h"]?.jsonPrimitive?.double ?: 0.0

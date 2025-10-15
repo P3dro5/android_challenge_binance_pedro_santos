@@ -20,8 +20,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.binancews.model.CryptoListingTicker
-import com.example.binancews.viewmodel.CryptoViewModel
+import com.example.binancews.domain.model.CryptoListingTicker
+import com.example.binancews.ui.viewmodel.CryptoViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

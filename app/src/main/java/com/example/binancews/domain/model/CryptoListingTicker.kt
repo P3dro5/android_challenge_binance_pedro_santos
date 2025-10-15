@@ -1,4 +1,4 @@
-package com.example.binancews.model
+package com.example.binancews.domain.model
 
 data class CryptoListingTicker(
     val symbol: String,

@@ -1,4 +1,4 @@
-package com.example.binancews.ui
+package com.example.binancews.ui.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -7,7 +7,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.example.binancews.viewmodel.CryptoViewModel
+import com.example.binancews.ui.CryptoListComposeView
+import com.example.binancews.ui.DetailScreenComposeView
+import com.example.binancews.ui.viewmodel.CryptoViewModel
 
 @Composable
 fun AppNavigation() {

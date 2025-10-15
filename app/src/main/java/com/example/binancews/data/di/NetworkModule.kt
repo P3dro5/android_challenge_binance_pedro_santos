@@ -1,4 +1,4 @@
-package com.example.binancews.di
+package com.example.binancews.data.di
 
 import com.example.binancews.data.BinanceService
 import kotlinx.serialization.json.Json

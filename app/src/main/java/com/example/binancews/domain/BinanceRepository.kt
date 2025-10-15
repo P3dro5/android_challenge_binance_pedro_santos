@@ -1,7 +1,7 @@
 package com.example.binancews.domain
 
 import com.example.binancews.data.WsEvent
-import com.example.binancews.model.SymbolInfo
+import com.example.binancews.domain.model.SymbolInfo
 import kotlinx.coroutines.flow.Flow
 
 interface BinanceRepository {
