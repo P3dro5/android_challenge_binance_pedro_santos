@@ -1,4 +1,4 @@
-package com.example.binancews.model
+package com.example.binancews.domain.model
 
 import kotlinx.serialization.Serializable
 
